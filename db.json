@@ -1,0 +1,14 @@
+{
+  "allTransactions": [
+    {
+      "id": "1",
+      "date": "09/04/23",
+      "description": "Netflix",
+      "category": "Entertainment",
+      "amount": 1400
+    },
+    {
+      "id": "49b6"
+    }
+  ]
+}

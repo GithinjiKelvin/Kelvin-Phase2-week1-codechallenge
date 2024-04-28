@@ -3,7 +3,7 @@ import React from 'react'
 function Transactiontable({props}) {
   return (
     <div className='transactiontable'>
-        <table class="table">
+        <table className="table">
         <thead>
           <tr>
             <th scope="col">Date</th>

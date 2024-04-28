@@ -1,15 +1,15 @@
 import React from 'react'
 
-function Form() {
+function Search() {
   return (
     <div className='search'>
         <form>
         <input type="text" placeholder="Search.." name="search"/>
         
-      <button type="submit"><i class="fa fa-search"></i></button>
+      <button type="submit"><i className="fa fa-search"></i></button>
         </form>
     </div>
   )
 }
 
-export default Form
+export default Search
