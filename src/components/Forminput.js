@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { bankTransactions } from '../Data';
 
 function Forminput() {
 
@@ -24,26 +25,47 @@ function Forminput() {
 
     const handleSubmission = (event) => {
         event.preventDefault();
-        if(description.trim() && category.trim() && amount.trim() !==''){
+        if(date.trim() && description.trim() && category.trim() && amount.trim() !==''){
             setRecTransactions([...recTransactions, date, description, category, amount])
+            setDate("")
             setDescription("")
             setCategory("")
             setAmount("")
         }
         addTransactionToDb(recTransactions)
     }
-    console.log(recTransactions)
+     console.log(recTransactions)
+
+    //  useEffect(() => {fetch('http://localhost:3000/allTransactions')
+    //     .then(res => res.json())
+    //     .then(setRecTransactions)}, [])
+    
+    //  function addTransactionToDb(recTransactions){
+    //     fetch('http://localhost:3000/allTransactions', {
+    //         method: 'POST',
+    //         headers: {
+    //             Accepts: 'application/json',
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(recTransactions)
+    //     })
+    //     .then(res => res.json())
+    //     .then(transac => console.log(transac))
+    //  }
+
 
     function addTransactionToDb(recTransactions){
         fetch('http://localhost:3000/allTransactions', {
             method: 'POST',
             headers: {
+                // Accepts: 'application/json',
                 'content-Type': 'application/json'
             },
             body:JSON.stringify(recTransactions)
         })
         .then(res => res.json())
         .then(transac => console.log(transac))
+        // .then(json => setRecTransactions([...recTransactions, json]))
     }
 
   return (
